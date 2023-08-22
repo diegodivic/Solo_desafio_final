@@ -1,14 +1,12 @@
 const express = require('express');
-
+const usuarioController = require('../controller/usuarioController')
 const routes = express.Router();
 
 
-routes.get('/', (req, res)=>{
-    res.send("Fala caceta");
-});
+routes.get('/usuario/lista', usuarioController.listarUsuario);
 
 routes.post("/cadastrar", (req, res)=>{
-    
+
 })
 
 
