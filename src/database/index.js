@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 
-const DB_NAME = "DevCell";
+const DB_NAME = "api_devcell";
 const DB_USER = "root";
 const DB_PASS = "112686";
 const DB_CONFIG = {

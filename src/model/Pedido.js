@@ -1,23 +1,17 @@
 const db = require("../database");
 const { DataTypes } = require('sequelize');
 
-const Usuarios = db.define("Usuarios", {
-    id_usuario: {
+const Pedido = db.define("Pedido", {
+    numero: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    nome:{
+    lista_produtos:{
         type: DataTypes.STRING,
     },
-    email:{
-        type: DataTypes.STRING,
-    },
-    senha:{
-        type: DataTypes.STRING,
-    },
-    tipo_usuario:{
-        type: DataTypes.STRING
+    valor_total:{
+        type: DataTypes.INTEGER,
     },
     createdAt:{
         type: DataTypes.DATE,
@@ -27,8 +21,8 @@ const Usuarios = db.define("Usuarios", {
     },
 },
 {
-    tableName: "usuario",
+    tableName: "pedido",
 
 });
 
-module.exports = Usuarios;
+module.exports = Pedido;
