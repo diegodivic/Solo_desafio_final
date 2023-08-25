@@ -1,5 +1,6 @@
 const db = require("../database");
 const { DataTypes } = require('sequelize');
+const Categoria = require('./index');
 
 const Produtos = db.define("Produtos", {
     id_produto: {
@@ -18,6 +19,13 @@ const Produtos = db.define("Produtos", {
     },
     descricao:{
         type: DataTypes.TEXT,
+    },
+    categoria_id:{
+        type: DataTypes.INTEGER,
+        references:{
+            model: Categoria,
+            key:'id_categoria'
+        }
     },
 },
 {
