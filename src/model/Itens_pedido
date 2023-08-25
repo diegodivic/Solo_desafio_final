@@ -11,20 +11,16 @@ const Itens_pedido = db.define("Itens_pedido", {
         type: DataTypes.INTEGER,
     },
     preco_unitario:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DOUBLE,
     },
     preco_final:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DOUBLE,
     },
-    createdAt:{
-        type: DataTypes.DATE,
-    },
-    updatedAt:{
-        type: DataTypes.DATE,
-    },
+    
 },
 {
     tableName: "itens_pedido",
+    timestamps: false,
 
 });
 

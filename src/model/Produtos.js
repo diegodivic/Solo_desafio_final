@@ -2,7 +2,7 @@ const db = require("../database");
 const { DataTypes } = require('sequelize');
 
 const Produtos = db.define("Produtos", {
-    id: {
+    id_produto: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -10,27 +10,19 @@ const Produtos = db.define("Produtos", {
     nome:{
         type: DataTypes.STRING,
     },
-    foto:{
+    link_foto:{
         type: DataTypes.STRING,
     },
     preco:{
-        type: DataTypes.FLOAT,
+        type: DataTypes.DOUBLE,
     },
     descricao:{
-        type: DataTypes.STRING
-    },
-    categoria:{
-        type: DataTypes.STRING
-    },
-    createdAt:{
-        type: DataTypes.DATE,
-    },
-    updatedAt:{
-        type: DataTypes.DATE,
+        type: DataTypes.TEXT,
     },
 },
 {
-    tableName: "produtos",
+    tableName: "produto",
+    timestamps: false,
 
 });
 

@@ -11,18 +11,13 @@ const Pedido = db.define("Pedido", {
         type: DataTypes.STRING,
     },
     valor_total:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DOUBLE,
     },
-    createdAt:{
-        type: DataTypes.DATE,
-    },
-    updatedAt:{
-        type: DataTypes.DATE,
-    },
+
 },
 {
     tableName: "pedido",
-
+    timestamps: false,
 });
 
 module.exports = Pedido;

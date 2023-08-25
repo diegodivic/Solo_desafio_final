@@ -19,15 +19,10 @@ const Usuarios = db.define("Usuarios", {
     tipo_usuario:{
         type: DataTypes.STRING
     },
-    createdAt:{
-        type: DataTypes.DATE,
-    },
-    updatedAt:{
-        type: DataTypes.DATE,
-    },
 },
 {
     tableName: "usuario",
+    timestamps: false,
 
 });
 

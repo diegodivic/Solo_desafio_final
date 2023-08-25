@@ -11,17 +11,12 @@ const Categoria = db.define("Categoria", {
         type: DataTypes.STRING,
     },
     descricao:{
-        type: DataTypes.STRING,
-    },
-    createdAt:{
-        type: DataTypes.DATE,
-    },
-    updatedAt:{
-        type: DataTypes.DATE,
+        type: DataTypes.TEXT,
     },
 },
 {
     tableName: "categoria",
+    timestamps: false,
 
 });
 
