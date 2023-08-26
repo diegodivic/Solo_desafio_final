@@ -1,5 +1,6 @@
 const db = require("../database");
 const { DataTypes } = require('sequelize');
+const Usuarios = require('./Usuarios')
 
 const Pedido = db.define("Pedido", {
     numero: {
@@ -12,6 +13,13 @@ const Pedido = db.define("Pedido", {
     },
     valor_total:{
         type: DataTypes.DOUBLE,
+    },
+    usuario_id:{
+        type: DataTypes.INTEGER,
+        references:{
+            model: Usuarios,
+            key:'id_usuario'
+        }
     },
 
 },
