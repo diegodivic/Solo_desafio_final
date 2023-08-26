@@ -2,12 +2,13 @@ const express = require('express');
 const produtosController = require('../controller/produtosController');
 const categoriaController = require("../controller/categoriaController");
 const usuariosController = require('../controller/usuarioController');
-const pedidoController = require('../controller/pedidoController')
+const pedidoController = require('../controller/pedidoController');
+const bloqueio = require('../middlewares/bloqueio')
 const routes = express.Router();
 
 
 routes.get("/produto", produtosController.listarProduto);
-routes.post("/produto", produtosController.cadastrarProduto);
+routes.post("/produto", bloqueio, produtosController.cadastrarProduto);
 routes.delete("/produto/:id_produto", produtosController.deletarProduto);
 routes.put("/produto/:id_produto", produtosController.atualizarProduto);
 
