@@ -3,12 +3,13 @@ const produtosController = require('../controller/produtosController');
 const categoriaController = require("../controller/categoriaController");
 const usuariosController = require('../controller/usuarioController');
 const pedidoController = require('../controller/pedidoController');
-const bloqueio = require('../middlewares/bloqueio')
+const usuarioCreateValidation = require('../validations/usuarios/create');
+const produtoCreateValidation = require('../validations/produtos/create');
 const routes = express.Router();
 
 
 routes.get("/produto", produtosController.listarProduto);
-routes.post("/produto", produtosController.cadastrarProduto);
+routes.post("/produto", produtoCreateValidation, produtosController.cadastrarProduto);
 routes.delete("/produto/:id_produto", produtosController.deletarProduto);
 routes.put("/produto/:id_produto", produtosController.atualizarProduto);
 
@@ -18,7 +19,7 @@ routes.delete("/categoria/:id_categoria", categoriaController.deletarCategoria);
 routes.put("/categoria/:id_categoria", categoriaController.atualizarCategoria);
 
 routes.get("/usuario", usuariosController.listarUsuario);
-routes.post("/usuario", usuariosController.cadastrarUsuario);
+routes.post("/usuario", usuarioCreateValidation, usuariosController.cadastrarUsuario);
 routes.delete("/usuario/:id_usuario", usuariosController.deletarUsuario);
 routes.put("/usuario/:id_usuario", usuariosController.atualizarUsuario);
 
