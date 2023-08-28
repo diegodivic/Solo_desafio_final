@@ -8,7 +8,7 @@ const routes = express.Router();
 
 
 routes.get("/produto", produtosController.listarProduto);
-routes.post("/produto", bloqueio, produtosController.cadastrarProduto);
+routes.post("/produto", produtosController.cadastrarProduto);
 routes.delete("/produto/:id_produto", produtosController.deletarProduto);
 routes.put("/produto/:id_produto", produtosController.atualizarProduto);
 
