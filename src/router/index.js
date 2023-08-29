@@ -5,6 +5,8 @@ const usuariosController = require('../controller/usuarioController');
 const pedidoController = require('../controller/pedidoController');
 const usuarioCreateValidation = require('../validations/usuarios/create');
 const produtoCreateValidation = require('../validations/produtos/create');
+const authLoginValidation = require("../validations/auth/login");
+const authController = require("../controller/authController");
 const routes = express.Router();
 
 
@@ -22,6 +24,8 @@ routes.get("/usuario", usuariosController.listarUsuario);
 routes.post("/usuario", usuarioCreateValidation, usuariosController.cadastrarUsuario);
 routes.delete("/usuario/:id_usuario", usuariosController.deletarUsuario);
 routes.put("/usuario/:id_usuario", usuariosController.atualizarUsuario);
+
+routes.post("/login", authLoginValidation, authController.login);
 
 routes.get("/pedido", pedidoController.listarPedido);
 routes.post("/pedido", pedidoController.cadastrarPedido);

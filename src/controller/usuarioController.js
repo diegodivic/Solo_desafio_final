@@ -46,7 +46,7 @@ const usuariosController = {
         const { id_usuario } = req.params;
         const { nome, email, senha, tipo_usuario } = req.body;
 
-        if(!id) return res.status(400).json("id não enviado");
+        if(!id_usuario) return res.status(400).json("id não enviado");
         
         const usuarioAtualizado = await Usuarios.update({
             nome,
