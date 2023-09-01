@@ -7,11 +7,12 @@ const usuarioCreateValidation = require('../validations/usuarios/create');
 const produtoCreateValidation = require('../validations/produtos/create');
 const authLoginValidation = require("../validations/auth/login");
 const authController = require("../controller/authController");
+const auth = require("../middlewares/auth")
 const routes = express.Router();
 
 
 routes.get("/produto", produtosController.listarProduto);
-routes.post("/produto", produtoCreateValidation, produtosController.cadastrarProduto);
+routes.post("/produto", auth, produtoCreateValidation, produtosController.cadastrarProduto);
 routes.delete("/produto/:id_produto", produtosController.deletarProduto);
 routes.put("/produto/:id_produto", produtosController.atualizarProduto);
 

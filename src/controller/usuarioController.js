@@ -6,7 +6,7 @@ const usuariosController = {
     async cadastrarUsuario(req, res) {
         const { nome, email, senha, tipo_usuario } = req.body;
 
-        const novaSenha =  bcrypt.hashSync('senha', 10);
+        const novaSenha =  bcrypt.hashSync(senha, 10);
 
         const novoUsuario = await Usuarios.create({
             nome, 
@@ -27,17 +27,20 @@ const usuariosController = {
     },
 
     async deletarUsuario(req, res) {
-        try{
         const { id_usuario } = req.params;
-
+        const usuario = await Usuarios.findByPk(id_usuario)
+        if(!usuario) return res.status(404).json("Id não encontrado")
+        try{
+        
         await Usuarios.destroy({
             where:{
                 id_usuario,
             },
+        }).then(()=>{
+            res.status(204).end();
         });
 
-        res.status(204);
-    }catch(error){
+    }catch(error) {
         return res.status(500).json("Ocorreu algum problema")
     }
 },

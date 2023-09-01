@@ -3,6 +3,8 @@ const { Produtos, Categoria } = require('../model');
 const produtosController = {
 
     async cadastrarProduto(req, res) {
+        console.log(req.user);
+
         const { nome, link_foto, preco, descricao, categoria_id} = req.body;
 
         const novoProduto = await Produtos.create({
@@ -25,19 +27,21 @@ const produtosController = {
         res.json(listaDeProdutos);
 
     },
-
     async deletarProduto(req, res) {
-        try{
         const { id_produto } = req.params;
-
+        const produto = await Produtos.findByPk(id_produto)
+        if(!produto) return res.status(404).json("Id não encontrado")
+        try{
+        
         await Produtos.destroy({
             where:{
                 id_produto,
             },
+        }).then(()=>{
+            res.status(204).end();
         });
 
-        res.status(204);
-    }catch(error){
+    }catch(error) {
         return res.status(500).json("Ocorreu algum problema")
     }
 },

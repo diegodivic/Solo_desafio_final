@@ -20,17 +20,23 @@ const categoriaController = {
         res.json(listaDeCategoria);
 
     },
-
     async deletarCategoria(req, res) {
         const { id_categoria } = req.params;
-
+        const categoria = await Categoria.findByPk(id_categoria)
+        if(!categoria) return res.status(404).json("Id não encontrado")
+        try{
+        
         await Categoria.destroy({
             where:{
                 id_categoria,
             },
+        }).then(()=>{
+            res.status(204).end();
         });
 
-        res.json("Categoria deletada");
+    }catch(error) {
+        return res.status(500).json("Ocorreu algum problema")
+    }
     },
 
     async atualizarCategoria (req, res) {

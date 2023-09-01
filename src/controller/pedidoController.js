@@ -23,21 +23,24 @@ const pedidoController = {
         res.json(listaDePedidos);
 
     },
-
     async deletarPedido(req, res) {
-        try{
         const { numero } = req.params;
-
+        const pedido = await Pedido.findByPk(numero)
+        if(!pedido) return res.status(404).json("Numero de pedido não encontrado")
+        try{
+        
         await Pedido.destroy({
             where:{
                 numero,
             },
+        }).then(()=>{
+            res.status(204).end();
         });
 
-        res.status(204);
-    }catch(error){
+    }catch(error) {
         return res.status(500).json("Ocorreu algum problema")
     }
+    
 },
 
     async atualizarPedido (req, res) {
