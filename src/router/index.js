@@ -7,7 +7,8 @@ const usuarioCreateValidation = require('../validations/usuarios/create');
 const produtoCreateValidation = require('../validations/produtos/create');
 const authLoginValidation = require("../validations/auth/login");
 const authController = require("../controller/authController");
-const auth = require("../middlewares/auth")
+const auth = require("../middlewares/auth");
+
 const routes = express.Router();
 
 
