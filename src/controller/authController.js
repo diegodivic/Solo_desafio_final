@@ -22,16 +22,21 @@ const authController = {
         }
 
         const token = jwt.sign(
-            {
-                id: usuario.id_usuario, 
+            { 
                 email: usuario.email, 
-                nome: usuario.nome,
                 tipo_usuario: usuario.tipo_usuario,
             },
-            secret.key
-            )
-
-        return res.status(200).json(token)
+            secret.key, 
+            {
+                //expiresIn: 60
+                //expiresIn: 300
+                //expiresIn: '1h'
+                expiresIn: '7d'
+            },
+            )            
+            /*console.log(jwt.decode(token))*/
+        return res.status(200).json(token);
+        
         
     },
 };

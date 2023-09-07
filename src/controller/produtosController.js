@@ -1,12 +1,13 @@
 const { Produtos, Categoria } = require('../model');
 
+
 const produtosController = {
 
     async cadastrarProduto(req, res) {
-        console.log(req.user);
-
+        
         const { nome, link_foto, preco, descricao, categoria_id} = req.body;
-
+        
+        
         const novoProduto = await Produtos.create({
             nome, 
             link_foto,
@@ -16,7 +17,8 @@ const produtosController = {
         });
 
         res.status(201).json(novoProduto);
-    },
+   
+},
 
     async listarProduto(req, res) {
 
@@ -50,7 +52,7 @@ const produtosController = {
         const { id_produto } = req.params;
         const { nome, link_foto, preco, descricao, categoria_id} = req.body;
 
-        if(!id) return res.status(400).json("id não enviado");
+        if(!id_produto) return res.status(400).json("id não enviado");
         
         const produtoAtualizado = await Produtos.update({
             nome,
