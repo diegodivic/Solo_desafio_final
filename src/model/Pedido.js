@@ -1,6 +1,6 @@
-const db = require("../database");
-const { DataTypes } = require('sequelize');
-const Usuarios = require('./Usuarios')
+import db from '../database/index.js';
+import { DataTypes } from 'sequelize';
+import Usuarios from './Usuarios.js';
 
 const Pedido = db.define("Pedido", {
     numero: {
@@ -28,4 +28,4 @@ const Pedido = db.define("Pedido", {
     timestamps: false,
 });
 
-module.exports = Pedido;
+export default Pedido;

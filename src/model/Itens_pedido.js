@@ -1,5 +1,5 @@
-const db = require("../database");
-const { DataTypes } = require('sequelize');
+import db from '../database/index.js';
+import { DataTypes } from 'sequelize';
 
 const Itens_pedido = db.define("Itens_pedido", {
     seq: {
@@ -24,4 +24,4 @@ const Itens_pedido = db.define("Itens_pedido", {
 
 });
 
-module.exports = Itens_pedido;
+export default Itens_pedido;

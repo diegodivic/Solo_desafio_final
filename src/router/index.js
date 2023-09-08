@@ -1,24 +1,27 @@
 // *** INICIO DAS IMPORTAÇÕES *** \\
 
-const express = require('express');
+import express from 'express';
 
 //Importação controllers dos models
-const produtosController = require('../controller/produtosController');
-const categoriaController = require("../controller/categoriaController");
-const usuariosController = require('../controller/usuarioController');
-const pedidoController = require('../controller/pedidoController');
+
+import produtosController from '../controller/produtosController.js';
+import categoriaController from '../controller/categoriaController.js';
+import usuariosController from '../controller/usuarioController.js';
+import pedidoController from '../controller/pedidoController.js';
 
 //Importação  das validações
-const usuarioCreateValidation = require('../validations/usuarios/create');
-const produtoCreateValidation = require('../validations/produtos/create');
-const authLoginValidation = require("../validations/auth/login");
+
+import usuarioCreateValidation from '../validations/usuarios/create.js';
+import produtoCreateValidation from '../validations/produtos/create.js';
+import authLoginValidation from '../validations/auth/login.js';
 
 //Importação do controller do login
-const authController = require("../controller/authController");
+import authController from '../controller/authController.js';
+
 
 //Importação dos middlewares
-const auth = require("../middlewares/auth");
-const authADM = require('../middlewares/authADM')
+import auth from '../middlewares/auth.js';
+import authADM from '../middlewares/authADM.js';
 
 
 // *** FIM DAS IMPORTAÇÕES *** \\
@@ -62,4 +65,4 @@ routes.put("/pedido/:numero", pedidoController.atualizarPedido);
 
 // *** FIM DAS ROTAS *** \\
 
-module.exports = routes;
+export default routes;

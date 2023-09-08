@@ -1,4 +1,4 @@
-const { Pedido, Usuarios } = require('../model');
+import { Pedido, Usuarios } from '../model/index.js';
 
 const pedidoController = {
 
@@ -65,4 +65,4 @@ const pedidoController = {
     },
 };
 
-module.exports = pedidoController;
+export default pedidoController;

@@ -1,6 +1,6 @@
-const { validate, Joi } = require('express-validation');
+import { validate, Joi } from 'express-validation';
 
-module.exports = validate({
+export default validate({
     body: Joi.object({
         nome: Joi.string().required(),
         email: Joi.string().email().required(),

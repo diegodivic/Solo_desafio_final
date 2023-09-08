@@ -1,5 +1,4 @@
-const { Produtos, Categoria } = require('../model');
-
+import { Produtos, Categoria } from '../model/index.js';
 
 const produtosController = {
 
@@ -72,4 +71,4 @@ const produtosController = {
     },
 };
 
-module.exports = produtosController;
+export default produtosController;

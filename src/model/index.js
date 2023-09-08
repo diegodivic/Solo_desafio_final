@@ -1,7 +1,7 @@
-const Categoria = require('./Categoria');
-const Produtos = require('./Produtos');
-const Usuarios = require('./Usuarios');
-const Pedido = require('./pedido');
+import Categoria from './Categoria.js';
+import Produtos from './Produtos.js';
+import Usuarios from './Usuarios.js';
+import Pedido from './Pedido.js';
 
 Produtos.belongsTo(Categoria,{
     foreignKey: "categoria_id",
@@ -19,7 +19,7 @@ Usuarios.hasMany(Pedido,{
     foreignKey: "usuario_id",
 });
 
-module.exports={
+export {
     Categoria,
     Produtos,
     Usuarios,

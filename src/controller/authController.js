@@ -1,7 +1,7 @@
-const { Usuarios } = require("../model");
-const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs');
-const secret = require("../configs/secret")
+import { Usuarios } from '../model/index.js';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import secret from '../configs/secret.js'
 
 const authController = {
     async login(req, res){
@@ -41,4 +41,4 @@ const authController = {
     },
 };
 
-module.exports = authController;
+export default authController;

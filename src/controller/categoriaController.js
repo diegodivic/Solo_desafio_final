@@ -1,4 +1,4 @@
-const { Categoria } = require('../model');
+import { Categoria } from '../model/index.js';
 
 const categoriaController = {
 
@@ -58,4 +58,4 @@ const categoriaController = {
     },
 };
 
-module.exports = categoriaController;
+export default categoriaController;

@@ -1,5 +1,5 @@
-const db = require("../database");
-const { DataTypes } = require('sequelize');
+import db from '../database/index.js';
+import { DataTypes } from 'sequelize';
 
 const Categoria = db.define("Categoria", {
     id_categoria: {
@@ -20,4 +20,4 @@ const Categoria = db.define("Categoria", {
 
 });
 
-module.exports = Categoria;
+export default Categoria;

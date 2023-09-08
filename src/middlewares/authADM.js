@@ -1,5 +1,4 @@
-const jwt = require('jsonwebtoken')
-
+import jwt from 'jsonwebtoken';
 
 const authADM = (req,res,next)=>{
     const jwtusuario = req.headers.authorization.split(' ')[1];
@@ -13,4 +12,4 @@ const authADM = (req,res,next)=>{
     
     
 }
-module.exports = authADM;
+export default authADM;

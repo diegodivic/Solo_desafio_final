@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "API para projeto final Gama Academy",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",

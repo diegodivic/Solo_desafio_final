@@ -1,5 +1,5 @@
-const { Usuarios } = require('../model');
-const bcrypt = require("bcryptjs")
+import { Usuarios } from '../model/index.js';
+import bcrypt from 'bcryptjs';
 
 const usuariosController = {
 
@@ -68,4 +68,4 @@ const usuariosController = {
     },
 };
 
-module.exports = usuariosController;
+export default usuariosController;

@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-
+import Sequelize from 'sequelize';
 
 const DB_NAME = "api_devcell";
 const DB_USER = "root";
@@ -32,4 +31,4 @@ Object.assign(db, {
 });
 
 
-module.exports = db;
+export default db;

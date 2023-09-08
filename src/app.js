@@ -1,8 +1,8 @@
-const express = require('express');
-const routes = require('./router');
-const handleError = require('./middlewares/handleError');
+import express from 'express'
+import routes from './router/index.js'
+import handleError from './middlewares/handleError.js'
+import db from './database/index.js'
 
-const db = require('./database');
 
 const app = express();
 
