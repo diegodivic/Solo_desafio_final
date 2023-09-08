@@ -8,12 +8,14 @@ import produtosController from '../controller/produtosController.js';
 import categoriaController from '../controller/categoriaController.js';
 import usuariosController from '../controller/usuarioController.js';
 import pedidoController from '../controller/pedidoController.js';
+import admController from '../controller/admController.js'
 
 //Importação  das validações
 
 import usuarioCreateValidation from '../validations/usuarios/create.js';
 import produtoCreateValidation from '../validations/produtos/create.js';
 import authLoginValidation from '../validations/auth/login.js';
+import admCreateValidation from '../validations/adm/create.js'
 
 //Importação do controller do login
 import authController from '../controller/authController.js';
@@ -51,6 +53,9 @@ routes.get("/usuario", auth, usuariosController.listarUsuario);
 routes.post("/usuario", usuarioCreateValidation, usuariosController.cadastrarUsuario);
 routes.delete("/usuario/:id_usuario", auth, usuariosController.deletarUsuario);
 routes.put("/usuario/:id_usuario", auth, usuariosController.atualizarUsuario);
+
+// *** ROTAS DOS ADMINISTRADORES *** \\
+routes.post("/adm", auth, authADM, admCreateValidation, admController.cadastrarADM);
 
 // *** ROTAS DO LOGIN *** \\
 
