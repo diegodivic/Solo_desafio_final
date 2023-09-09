@@ -14,6 +14,8 @@ import admController from '../controller/admController.js'
 
 import usuarioCreateValidation from '../validations/usuarios/create.js';
 import produtoCreateValidation from '../validations/produtos/create.js';
+import pedidoCreateValidation from '../validations/pedido/create.js'
+import categoriaCreateValidation from '../validations/categoria/create.js'
 import authLoginValidation from '../validations/auth/login.js';
 import admCreateValidation from '../validations/adm/create.js'
 
@@ -35,15 +37,15 @@ const routes = express.Router();
 
 // *** ROTAS DOS PRODUTOS *** \\
 
-routes.get("/produto", produtosController.listarProduto);
+routes.get("/produto", auth, produtosController.listarProduto);
 routes.post("/produto", auth, authADM, produtoCreateValidation, produtosController.cadastrarProduto);
-routes.delete("/produto/:id_produto", produtosController.deletarProduto);
-routes.put("/produto/:id_produto", produtosController.atualizarProduto);
+routes.delete("/produto/:id_produto", auth, authADM, produtosController.deletarProduto);
+routes.put("/produto/:id_produto", auth, authADM, produtosController.atualizarProduto);
 
 // *** ROTAS DAS CATEGORIAS *** \\
 
 routes.get("/categoria", auth, categoriaController.listarCategoria);
-routes.post("/categoria", auth, authADM, categoriaController.cadastrarCategoria);
+routes.post("/categoria", auth, authADM, categoriaCreateValidation, categoriaController.cadastrarCategoria);
 routes.delete("/categoria/:id_categoria", auth, authADM, categoriaController.deletarCategoria);
 routes.put("/categoria/:id_categoria", auth, authADM, categoriaController.atualizarCategoria);
 
@@ -63,10 +65,10 @@ routes.post("/login", authLoginValidation, authController.login);
 
 // *** ROTAS DOS PEDIDOS *** \\
 
-routes.get("/pedido", pedidoController.listarPedido);
-routes.post("/pedido", pedidoController.cadastrarPedido);
-routes.delete("/pedido/:numero", pedidoController.deletarPedido);
-routes.put("/pedido/:numero", pedidoController.atualizarPedido);
+routes.get("/pedido", auth, pedidoController.listarPedido);
+routes.post("/pedido", auth, pedidoCreateValidation, pedidoController.cadastrarPedido);
+routes.delete("/pedido/:numero", auth, pedidoController.deletarPedido);
+routes.put("/pedido/:numero", auth, pedidoController.atualizarPedido);
 
 // *** FIM DAS ROTAS *** \\
 
