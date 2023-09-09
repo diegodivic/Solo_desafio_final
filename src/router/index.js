@@ -42,10 +42,10 @@ routes.put("/produto/:id_produto", produtosController.atualizarProduto);
 
 // *** ROTAS DAS CATEGORIAS *** \\
 
-routes.get("/categoria", categoriaController.listarCategoria);
-routes.post("/categoria", categoriaController.cadastrarCategoria);
-routes.delete("/categoria/:id_categoria", categoriaController.deletarCategoria);
-routes.put("/categoria/:id_categoria", categoriaController.atualizarCategoria);
+routes.get("/categoria", auth, categoriaController.listarCategoria);
+routes.post("/categoria", auth, authADM, categoriaController.cadastrarCategoria);
+routes.delete("/categoria/:id_categoria", auth, authADM, categoriaController.deletarCategoria);
+routes.put("/categoria/:id_categoria", auth, authADM, categoriaController.atualizarCategoria);
 
 // *** ROTAS DOS USUARIOS *** \\
 

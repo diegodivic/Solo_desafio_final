@@ -4,13 +4,21 @@ const categoriaController = {
 
     async cadastrarCategoria(req, res) {
         const { nome, descricao } = req.body;
-
+        const consulta = await Categoria.findOne({
+            where:{
+                nome: req.body.nome
+            }
+        })
+        if(consulta !== null ){
+            return res.status(403).json("Categoria já cadastrada");
+        }
         const novaCategoria = await Categoria.create({
             nome, 
             descricao,
         });
 
-        res.json(novaCategoria);
+
+        res.status(201).json(novaCategoria);
     },
 
     async listarCategoria(req, res) {
