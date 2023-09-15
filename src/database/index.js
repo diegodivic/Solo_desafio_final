@@ -1,12 +1,13 @@
 import Sequelize from 'sequelize';
+import authDB from '../configs/authDB.js';
 
-const DB_NAME = "casavizentini";
-const DB_USER = "root";
-const DB_PASS = "112686";
+const DB_NAME = authDB.name;
+const DB_USER = authDB.user;
+const DB_PASS = authDB.pass;
 const DB_CONFIG = {
     dialect: "mysql",
-    host: "localhost",
-    port: 3306,
+    host: authDB.host,
+    port: authDB.port,
 };
 
 let db = {};
