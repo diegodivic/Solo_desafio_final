@@ -5,6 +5,6 @@ export default validate({
         nome: Joi.string().required(),
         email: Joi.string().email().required(),
         senha: Joi.string().min(8).required(),
-        tipo_usuario: Joi.string().lowercase().valid("cliente")
+        tipo_usuario: Joi.string().lowercase().valid("cliente", "administrador")
     })
 })

@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-const DB_NAME = "api_devcell";
+const DB_NAME = "casavizentini";
 const DB_USER = "root";
 const DB_PASS = "112686";
 const DB_CONFIG = {
