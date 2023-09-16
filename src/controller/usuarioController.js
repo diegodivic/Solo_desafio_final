@@ -1,5 +1,6 @@
 import { Usuarios } from '../model/index.js';
 import bcrypt from 'bcryptjs';
+import MESSAGE from '../constants/messages.js';
 
 const usuariosController = {
 
@@ -29,7 +30,7 @@ const usuariosController = {
     async deletarUsuario(req, res) {
         const { id_usuario } = req.params;
         const usuario = await Usuarios.findByPk(id_usuario)
-        if(!usuario) return res.status(404).json("Id não encontrado")
+        if(!usuario) return res.status(404).json(MESSAGE.ERROR.NOT_ID)
         try{
         
         await Usuarios.destroy({
@@ -41,7 +42,7 @@ const usuariosController = {
         });
 
     }catch(error) {
-        return res.status(500).json("Ocorreu algum problema")
+        return res.status(500).json(MESSAGE.ERROR.ERR_500)
     }
 },
 
@@ -49,7 +50,7 @@ const usuariosController = {
         const { id_usuario } = req.params;
         const { nome, email, senha, tipo_usuario } = req.body;
 
-        if(!id_usuario) return res.status(400).json("id não enviado");
+        if(!id_usuario) return res.status(400).json(MESSAGE.ERROR.NOT_ID);
         
         const usuarioAtualizado = await Usuarios.update({
             nome,
@@ -64,7 +65,7 @@ const usuariosController = {
         }
         );
 
-        res.json("Usuario atualizado");
+        res.json(MESSAGE.SUCESS.UPDATE);
     },
 };
 

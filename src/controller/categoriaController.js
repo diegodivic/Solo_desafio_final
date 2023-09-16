@@ -1,4 +1,5 @@
 import { Categoria } from '../model/index.js';
+import MESSAGE from '../constants/messages.js';
 
 const categoriaController = {
 
@@ -10,7 +11,7 @@ const categoriaController = {
             }
         })
         if(consulta !== null ){
-            return res.status(403).json("Categoria já cadastrada");
+            return res.status(403).json(MESSAGE.ERROR.CAT_EXIST);
         }
         const novaCategoria = await Categoria.create({
             nome, 
@@ -31,7 +32,7 @@ const categoriaController = {
     async deletarCategoria(req, res) {
         const { id_categoria } = req.params;
         const categoria = await Categoria.findByPk(id_categoria)
-        if(!categoria) return res.status(404).json("Id não encontrado")
+        if(!categoria) return res.status(404).json(MESSAGE.ERROR.NOT_ID)
         try{
         
         await Categoria.destroy({
@@ -43,7 +44,7 @@ const categoriaController = {
         });
 
     }catch(error) {
-        return res.status(500).json("Ocorreu algum problema")
+        return res.status(500).json(MESSAGE.ERROR.ERR_500)
     }
     },
 
@@ -62,7 +63,7 @@ const categoriaController = {
         }
         );
 
-        res.json("Categoria atualizada");
+        res.json(MESSAGE.SUCESS.UPDATE);
     },
 };
 

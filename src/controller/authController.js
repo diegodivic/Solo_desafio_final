@@ -2,6 +2,7 @@ import { Usuarios } from '../model/index.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import secret from '../configs/secret.js'
+import MESSAGE from '../constants/messages.js'
 
 const authController = {
     async login(req, res){
@@ -14,11 +15,11 @@ const authController = {
         });
 
         if(!usuario){
-            return res.status(400).json("Email não cadastrado!");
+            return res.status(400).json(MESSAGE.ERROR.EMAIL_INVALID);
         }
 
         if(!bcrypt.compareSync(senha, usuario.senha)) {
-            return res.status(401).json("Senha invalida");
+            return res.status(401).json(MESSAGE.ERROR.PASS_INVALID);
         }
 
         const token = jwt.sign(

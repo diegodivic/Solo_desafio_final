@@ -10,6 +10,7 @@ const DB_CONFIG = {
     port: authDB.port,
 };
 
+
 let db = {};
 
 try {

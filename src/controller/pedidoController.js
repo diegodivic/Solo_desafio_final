@@ -1,4 +1,5 @@
 import { Pedido, Usuarios } from '../model/index.js';
+import MESSAGE from '../constants/messages.js';
 
 const pedidoController = {
 
@@ -26,7 +27,7 @@ const pedidoController = {
     async deletarPedido(req, res) {
         const { numero } = req.params;
         const pedido = await Pedido.findByPk(numero)
-        if(!pedido) return res.status(404).json("Numero de pedido não encontrado")
+        if(!pedido) return res.status(404).json(MESSAGE.ERROR.NOT_NUM)
         try{
         
         await Pedido.destroy({
@@ -38,7 +39,7 @@ const pedidoController = {
         });
 
     }catch(error) {
-        return res.status(500).json("Ocorreu algum problema")
+        return res.status(500).json(MESSAGE.ERROR.ERR_500)
     }
     
 },
@@ -47,7 +48,7 @@ const pedidoController = {
         const { numero } = req.params;
         const { lista_produtos, valor_total, usuario_id } = req.body;
 
-        if(!numero) return res.status(400).json("Numero do pedido não enviado");
+        if(!numero) return res.status(400).json(MESSAGE.ERROR.NOT_NUM);
         
         const usuarioAtualizado = await Usuarios.update({
             lista_produtos,
@@ -61,7 +62,7 @@ const pedidoController = {
         }
         );
 
-        res.json("Pedido atualizado");
+        res.json(MESSAGE.SUCESS.UPDATE);
     },
 };
 

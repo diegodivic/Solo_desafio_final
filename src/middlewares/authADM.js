@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import MESSAGE from '../constants/messages.js';
 
 const authADM = (req,res,next)=>{
     const jwtusuario = req.headers.authorization.split(' ')[1];
@@ -8,7 +9,7 @@ const authADM = (req,res,next)=>{
      return  next();
     }
     
-    res.status(401).json("Usuario não autorizado")
+    res.status(401).json(MESSAGE.ERROR.UNAUT_USER)
     
     
 }

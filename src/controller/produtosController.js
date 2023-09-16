@@ -1,4 +1,5 @@
 import { Produtos, Categoria } from '../model/index.js';
+import MESSAGE from '../constants/messages.js';
 
 const produtosController = {
 
@@ -31,7 +32,7 @@ const produtosController = {
     async deletarProduto(req, res) {
         const { id_produto } = req.params;
         const produto = await Produtos.findByPk(id_produto)
-        if(!produto) return res.status(404).json("Id não encontrado")
+        if(!produto) return res.status(404).json(MESSAGE.ERROR.NOT_ID)
         try{
         
         await Produtos.destroy({
@@ -43,7 +44,7 @@ const produtosController = {
         });
 
     }catch(error) {
-        return res.status(500).json("Ocorreu algum problema")
+        return res.status(500).json(MESSAGE.ERROR.ERR_500)
     }
 },
 
@@ -51,7 +52,7 @@ const produtosController = {
         const { id_produto } = req.params;
         const { nome, link_foto, preco, descricao, categoria_id} = req.body;
 
-        if(!id_produto) return res.status(400).json("id não enviado");
+        if(!id_produto) return res.status(400).json(MESSAGE.ERROR.NOT_ID);
         
         const produtoAtualizado = await Produtos.update({
             nome,
@@ -67,7 +68,7 @@ const produtosController = {
         }
         );
 
-        res.json("Produto atualizado");
+        res.json(MESSAGE.SUCESS.UPDATE);
     },
 };
 
