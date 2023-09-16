@@ -1,8 +1,8 @@
-import db from '../database/index.js';
+import {db} from '../database/index.js';
 import { DataTypes } from 'sequelize';
 import Categoria from './Categoria.js';
 
-const Produtos = db.define("Produtos", {
+const Produtos = db.instance.define("Produtos", {
     id_produto: {
         type: DataTypes.INTEGER,
         primaryKey: true,

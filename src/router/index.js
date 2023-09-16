@@ -8,7 +8,7 @@ import produtosController from '../controller/produtosController.js';
 import categoriaController from '../controller/categoriaController.js';
 import usuariosController from '../controller/usuarioController.js';
 import pedidoController from '../controller/pedidoController.js';
-import admController from '../controller/admController.js'
+import admController  from '../controller/admController.js'
 
 //Importação  das validações
 

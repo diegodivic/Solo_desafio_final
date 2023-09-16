@@ -1,7 +1,7 @@
 import express from 'express'
 import routes from './router/index.js'
 import handleError from './middlewares/handleError.js'
-import db from './database/index.js'
+import {db} from './database/index.js'
 
 
 const app = express();
