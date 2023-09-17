@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./router');
 const handleError = require('./infra/middlewares/handleError.js')
 const { db } = require('./database')
+require('dotenv').config();
 
 /*import express from 'express'
 import routes from './router/index.js'
@@ -11,7 +12,7 @@ import {db} from './database/index.js'*/
 
 const app = express();
 
-const porta = 3000;
+const porta = process.env.PORT;
 
 db.hasConection();
 
