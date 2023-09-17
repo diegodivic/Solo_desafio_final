@@ -8,6 +8,6 @@ module.exports = validate({
         nome: Joi.string().required(),
         email: Joi.string().email().required(),
         senha: Joi.string().min(8).required(),
-        tipo_usuario: Joi.string().lowercase().valid("cliente", "administrador")
+        tipo_usuario: Joi.string().lowercase().valid("cliente")
     })
 })
