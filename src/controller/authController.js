@@ -1,7 +1,7 @@
 import { Usuarios } from '../model/index.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import secret from '../configs/secret.js'
+import secret from '../infra/configs/secret.js'
 import MESSAGE from '../constants/messages.js'
 
 const authController = {

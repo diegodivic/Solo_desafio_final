@@ -1,5 +1,5 @@
 import SequelizeDatabase from "./SequelizeDatabase.js";
-import authDB from '../configs/authDB.js';
+import authDB from '../infra/configs/authDB.js'
 
 const DB_NAME = authDB.database;
 const DB_USER = authDB.username;

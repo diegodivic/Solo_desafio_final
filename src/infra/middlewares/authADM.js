@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import MESSAGE from '../constants/messages.js';
+import MESSAGE from '../../constants/messages.js';
 
 const authADM = (req,res,next)=>{
     const jwtusuario = req.headers.authorization.split(' ')[1];

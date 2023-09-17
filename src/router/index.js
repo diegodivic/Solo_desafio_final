@@ -24,8 +24,8 @@ import authController from '../controller/authController.js';
 
 
 //Importação dos middlewares
-import auth from '../middlewares/auth.js';
-import authADM from '../middlewares/authADM.js';
+import auth from '../infra/middlewares/auth.js';
+import authADM from '../infra/middlewares/authADM.js';
 
 
 // *** FIM DAS IMPORTAÇÕES *** \\
