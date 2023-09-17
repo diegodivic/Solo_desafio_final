@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "API para projeto final Gama Academy",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node -r dotenv/config src/app.js",
     "dev": "nodemon -r dotenv/config src/app.js",

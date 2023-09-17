@@ -1,6 +1,10 @@
-import { Usuarios } from '../model/index.js';
+const { Usuarios } = require('../model/index.js');
+const bcrypt = require('bcryptjs');
+const MESSAGE = require('../constants/messages.js');
+
+/*import { Usuarios } from '../model/index.js';
 import bcrypt from 'bcryptjs';
-import MESSAGE from '../constants/messages.js';
+import MESSAGE from '../constants/messages.js';*/
 
 const usuariosController = {
 
@@ -69,4 +73,4 @@ const usuariosController = {
     },
 };
 
-export default usuariosController;
+module.exports = usuariosController;

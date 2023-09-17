@@ -1,6 +1,10 @@
-import {db} from '../database/index.js';
+const { db } = require('../database');
+const { DataTypes } = require('sequelize');
+const Categoria = require('./Categoria.js');
+
+/*import {db} from '../database/index.js';
 import { DataTypes } from 'sequelize';
-import Categoria from './Categoria.js';
+import Categoria from './Categoria.js';*/
 
 const Produtos = db.instance.define("Produtos", {
     id_produto: {
@@ -34,4 +38,4 @@ const Produtos = db.instance.define("Produtos", {
 
 });
 
-export default Produtos;
+module.exports = Produtos;

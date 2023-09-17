@@ -1,5 +1,8 @@
-import Sequelize from 'sequelize';
-import authDB from '../infra/configs/authDB.js';
+const Sequelize = require('sequelize');
+const authDB = require('../infra/configs/authDB.js');
+
+/*import Sequelize from 'sequelize';
+import authDB from '../infra/configs/authDB.js';*/
 
 class SequelizeDatabase{
     instance
@@ -19,4 +22,4 @@ class SequelizeDatabase{
 
 
 
-export default SequelizeDatabase;
+module.exports = SequelizeDatabase;

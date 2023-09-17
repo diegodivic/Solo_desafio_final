@@ -1,7 +1,10 @@
-import { expressjwt } from 'express-jwt'
-import secret from '../configs/secret.js'
+const { expressjwt } = require('express-jwt');
+const secret = require('../configs/secret.js');
 
-export default expressjwt({
+/*import { expressjwt } from 'express-jwt'
+import secret from '../configs/secret.js'*/
+
+module.exports = expressjwt({
     secret: secret.key,
     algorithms: ["HS256"],
 }); 

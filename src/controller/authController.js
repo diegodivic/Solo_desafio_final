@@ -1,8 +1,15 @@
-import { Usuarios } from '../model/index.js';
+const { Usuarios } = require('../model/index.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const secret = require('../infra/configs/secret.js');
+const MESSAGE = require('../constants/messages.js');
+
+
+/*import { Usuarios } from '../model/index.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import secret from '../infra/configs/secret.js'
-import MESSAGE from '../constants/messages.js'
+import MESSAGE from '../constants/messages.js'*/
 
 const authController = {
     async login(req, res){
@@ -44,4 +51,4 @@ const authController = {
     },
 };
 
-export default authController;
+module.exports = authController;

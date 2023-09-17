@@ -1,5 +1,8 @@
-import jwt from 'jsonwebtoken';
-import MESSAGE from '../../constants/messages.js';
+const jwt = require('jsonwebtoken');
+const MESSAGE = require('../../constants/messages.js');
+
+/*import jwt from 'jsonwebtoken';
+import MESSAGE from '../../constants/messages.js';*/
 
 const authADM = (req,res,next)=>{
     const jwtusuario = req.headers.authorization.split(' ')[1];
@@ -13,4 +16,4 @@ const authADM = (req,res,next)=>{
     
     
 }
-export default authADM;
+module.exports = authADM;

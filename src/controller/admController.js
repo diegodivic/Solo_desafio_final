@@ -1,5 +1,8 @@
-import { Usuarios } from '../model/index.js';
-import bcrypt from 'bcryptjs';
+const { Usuarios } = require('../model/index.js');
+const bcrypt = require('bcryptjs');
+
+/*import { Usuarios } from '../model/index.js';
+import bcrypt from 'bcryptjs';*/
 
 const admController = {
 
@@ -19,4 +22,4 @@ const admController = {
     },
 }
 
-export default admController;
+module.exports = admController;

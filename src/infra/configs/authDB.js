@@ -1,4 +1,6 @@
-import "dotenv/config"
+const dotenv = require('dotenv/config');
+
+//import "dotenv/config"
 
 
 const authDB = {
@@ -10,4 +12,4 @@ const authDB = {
    dialect: 'mysql',
 };
 
-export default authDB;
+module.exports = authDB;

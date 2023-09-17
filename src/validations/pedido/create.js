@@ -1,6 +1,9 @@
-import { validate, Joi } from 'express-validation';
+const { validate, Joi } = require('express-validation');
 
-export default validate({
+//import { validate, Joi } from 'express-validation';
+
+//export default
+module.exports = validate({
     body: Joi.object({
         lista_produtos: Joi.string().required(),
         valor_total: Joi.number().required(),

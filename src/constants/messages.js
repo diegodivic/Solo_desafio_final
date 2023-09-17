@@ -15,4 +15,4 @@ const MESSAGE={
 
 }
 
-export default MESSAGE;
+module.exports = MESSAGE;

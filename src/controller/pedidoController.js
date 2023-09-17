@@ -1,5 +1,9 @@
-import { Pedido, Usuarios } from '../model/index.js';
-import MESSAGE from '../constants/messages.js';
+const { Pedido, Usuarios } = require('../model/index.js');
+const MESSAGE = require('../constants/messages.js');
+
+
+/*import { Pedido, Usuarios } from '../model/index.js';
+import MESSAGE from '../constants/messages.js';*/
 
 const pedidoController = {
 
@@ -66,4 +70,4 @@ const pedidoController = {
     },
 };
 
-export default pedidoController;
+module.exports = pedidoController;
